@@ -1,5 +1,4 @@
 var request = require("request");
-var https = require ("https");
 var GITHUB_USER = "YuChenHeMTL";
 var GITHUB_TOKEN = "e40279bff4a8eca59c5db4cc5830841175a924ac";
 var fs = require ('fs');

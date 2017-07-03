@@ -7,7 +7,6 @@ var GITHUB_TOKEN = process.env.GITHUB_TOKEN
 var Owner = process.argv[2];//the third value of the command line
 var Name = process.argv[3];//the fourth value of the command line
 
-
 function getRepoContributors(repoOwner, repoName, cb){
 
   console.log("Welcome to the Github Avatar Downloader!");
@@ -23,14 +22,19 @@ function getRepoContributors(repoOwner, repoName, cb){
       "User-Agent": 'YuChenHeMTL'//set the user agent as YuChenHeMTL
     }
   };
+  if (GITHUB_USER === undefined||GITHUB_TOKEN === undefined){
+    options.url = "https://@api.github.com/repos/" + repoOwner + '/' + repoName + '/contributors'
+  }
 
   request.get(options, function (err, response, body){
     if (err){
-      throw err;
+      throw err
     }
-
     body = JSON.parse(body);//parse the entire information as JSON objects
-
+    if (body.message){
+      console.log("The provided owner/repo does not exist")
+      return null
+    }
     for (var i=0; i < body.length; i++){
       var bodyIndex = body[i]
       cb(bodyIndex["avatar_url"], bodyIndex["login"] + '.jpg');

@@ -3,8 +3,8 @@ var GITHUB_USER = "YuChenHeMTL";
 var GITHUB_TOKEN = "e40279bff4a8eca59c5db4cc5830841175a924ac";
 var fs = require ('fs');
 
-var Owner = process.argv[2];//the second value of the command line
-var Name = process.argv[3];//the third value of the command line
+var Owner = process.argv[2];//the third value of the command line
+var Name = process.argv[3];//the fourth value of the command line
 
 
 function getRepoContributors(repoOwner, repoName, cb){

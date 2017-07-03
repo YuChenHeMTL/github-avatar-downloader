@@ -1,7 +1,8 @@
 var request = require("request");
-var GITHUB_USER = "YuChenHeMTL";
-var GITHUB_TOKEN = "e40279bff4a8eca59c5db4cc5830841175a924ac";
+require('dotenv').config()
 var fs = require ('fs');
+var GITHUB_USER = process.env.GITHUB_USER
+var GITHUB_TOKEN = process.env.GITHUB_TOKEN
 
 var Owner = process.argv[2];//the third value of the command line
 var Name = process.argv[3];//the fourth value of the command line

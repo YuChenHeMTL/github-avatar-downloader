@@ -31,7 +31,8 @@ function getRepoContributors(repoOwner, repoName, cb){
     body = JSON.parse(body);//parse the entire information as JSON objects
 
     for (var i=0; i < body.length; i++){
-      cb(body[i]["avatar_url"], body[i]["login"] + '.jpg');
+      var bodyIndex = body[i]
+      cb(bodyIndex["avatar_url"], bodyIndex["login"] + '.jpg');
     }//process the avatar url and the login name through the callback function
   })
 }
